@@ -7,4 +7,4 @@ Created special for the site overwatcharcade.today
 Be sure you will enjoy the app!
 
 #### See more
-Overwatch Arcade Today for UWP (WIndows Universal Platform): https://github.com/RomanGL/OWArcadeToday-UWP
+Overwatch Arcade Today for UWP (Universal Windows Platform): https://github.com/RomanGL/OWArcadeToday-UWP

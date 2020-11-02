@@ -1,0 +1,65 @@
+disabled_rules:
+  - trailing_whitespace
+  - todo
+  - private_over_fileprivate
+  - unused_setter_value
+
+opt_in_rules:
+  - force_unwrapping
+  - closure_spacing
+  - comma
+  - unneeded_break_in_switch
+  - unneeded_parentheses_in_closure_argument
+
+included:
+  - ../
+
+line_length:
+  warning: 180
+  error: 200
+
+type_body_length:
+  - 300 # warning
+  - 400 # error
+
+file_length:
+  warning: 600
+  error: 1200
+
+type_name:
+  min_length: 1 # only warning
+  max_length:
+    warning: 50
+
+identifier_name:
+  min_length:
+    warning: 2
+    error: 1
+  max_length:
+    warning: 50
+  excluded:
+    - vc
+    - x
+    - y
+    - i
+    - to
+    - id
+    - url
+    - URL
+    - app
+
+reporter: "xcode"
+
+function_parameter_count:
+  warning: 7
+  error: 10
+
+nesting:
+  type_level:
+    warning: 2
+
+large_tuple:
+  warning: 4
+  error: 6
+
+warning_threshold: 1

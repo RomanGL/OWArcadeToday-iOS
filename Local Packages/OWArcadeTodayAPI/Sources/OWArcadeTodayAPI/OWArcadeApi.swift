@@ -6,19 +6,23 @@
 import Foundation
 import PromiseKit
 import Alamofire
+import AppCoreKit
 
 public final class OWArcadeApi {
 
     // Dependencies
     private let endpoints: OWArcadeApiEndpoints
+    private let storage: IKeyValueStorage
 
     // State
     private var runtimeCachedToday: OWArcades?
 
     // MARK: - Lifecycle
 
-    public init(endpoints: OWArcadeApiEndpoints) {
+    public init(endpoints: OWArcadeApiEndpoints,
+                storage: IKeyValueStorage) {
         self.endpoints = endpoints
+        self.storage = storage
     }
 }
 
@@ -44,6 +48,25 @@ public extension OWArcadeApi {
 // MARK: - Private API
 
 private extension OWArcadeApi {
+    var cachedToday: OWArcades? {
+        get {
+            if let runtimeCachedToday = self.runtimeCachedToday {
+                return runtimeCachedToday
+            }
+
+            let cache: OWArcadesCache? = storage.get(by: OWArcadesCache.storageKey)
+            return cache?.arcades
+        }
+        set {
+            self.runtimeCachedToday = newValue
+            if let newValue = newValue {
+                storage.set(OWArcadesCache(arcades: newValue))
+            } else {
+                storage.remove(by: OWArcadesCache.storageKey)
+            }
+        }
+    }
+
     func load<Payload: Decodable>(path: String) -> Promise<Payload> {
         return Promise { seal in
             AF.request(path)
@@ -60,7 +83,7 @@ private extension OWArcadeApi {
     }
 
     func cache(arcades: OWArcades) -> Guarantee<OWArcades> {
-        self.runtimeCachedToday = arcades
+        self.cachedToday = arcades
         return .value(arcades)
     }
 }

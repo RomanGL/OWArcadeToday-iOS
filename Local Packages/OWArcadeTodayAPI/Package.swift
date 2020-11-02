@@ -19,14 +19,16 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/Alamofire/Alamofire.git", .upToNextMajor(from: "5.2.0")),
-        .package(url: "https://github.com/mxcl/PromiseKit", from: "6.8.0")
+        .package(url: "https://github.com/mxcl/PromiseKit", from: "6.8.0"),
+        .package(path: "../AppCoreKit")
     ],
     targets: [
         .target(
             name: "OWArcadeTodayAPI",
             dependencies: [
                 "Alamofire",
-                "PromiseKit"
+                "PromiseKit",
+                "AppCoreKit"
             ])
     ]
 )

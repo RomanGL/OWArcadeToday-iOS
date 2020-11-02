@@ -8,6 +8,9 @@
       location = "container:Local Packages"
       name = "Local Packages">
       <FileRef
+         location = "group:AppCoreKit">
+      </FileRef>
+      <FileRef
          location = "group:OWArcadeTodayAPI">
       </FileRef>
    </Group>

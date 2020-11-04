@@ -6,7 +6,7 @@
 import Foundation
 
 /// Represents an UserDefaults storage.
-public class UserDefaultsStorage {
+final class UserDefaultsStorage {
 
     // Dependencies
     private let userDefaults: UserDefaults

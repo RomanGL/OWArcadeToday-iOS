@@ -37,7 +37,7 @@ public extension OWArcadeApi {
     }
 
     func obtainToday() -> Promise<OWArcades> {
-        if let arcades = runtimeCachedToday {
+        if let arcades = cachedToday {
             return .value(arcades)
         }
 

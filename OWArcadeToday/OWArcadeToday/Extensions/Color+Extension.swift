@@ -1,0 +1,18 @@
+//
+// Copyright (c) 2020 Roman Gladkikh. All rights reserved.  
+// Licensed under the MIT License. See LICENSE file in the project root for full license information.  
+//
+
+import Foundation
+import SwiftUI
+
+extension Color {
+    init(hex: UInt, alpha: Double = 1) {
+        self.init(.sRGB,
+                  red: Double((hex >> 16) & 0xff) / 255,
+                  green: Double((hex >> 08) & 0xff) / 255,
+                  blue: Double((hex >> 00) & 0xff) / 255,
+                  opacity: alpha
+        )
+    }
+}

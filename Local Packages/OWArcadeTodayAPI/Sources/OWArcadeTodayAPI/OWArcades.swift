@@ -106,7 +106,7 @@ extension OWArcades.Modes.Tile: Codable {
 extension OWArcades.Modes.Tile.Duration: Codable {
     public init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
-        let value = try container.decode(String.self)
+        let value = try? container.decode(String.self)
 
         switch value {
         case "Daily":

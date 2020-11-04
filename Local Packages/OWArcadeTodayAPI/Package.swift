@@ -20,6 +20,7 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/Alamofire/Alamofire.git", .upToNextMajor(from: "5.2.0")),
         .package(url: "https://github.com/mxcl/PromiseKit", from: "6.8.0"),
+        .package(url: "https://github.com/ivlevAstef/DITranquillity.git", from: "4.1.4"),
         .package(path: "../AppCoreKit")
     ],
     targets: [
@@ -28,6 +29,7 @@ let package = Package(
             dependencies: [
                 "Alamofire",
                 "PromiseKit",
+                "DITranquillity",
                 "AppCoreKit"
             ])
     ]

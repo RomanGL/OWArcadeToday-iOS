@@ -17,9 +17,12 @@ let package = Package(
             name: "AppCoreKit",
             targets: ["AppCoreKit"])
     ],
+    dependencies: [
+        .package(url: "https://github.com/ivlevAstef/DITranquillity.git", from: "4.1.4")
+    ],
     targets: [
         .target(
             name: "AppCoreKit",
-            dependencies: [])
+            dependencies: ["DITranquillity"])
     ]
 )
